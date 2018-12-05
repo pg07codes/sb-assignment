@@ -9,6 +9,10 @@ node server.
 - Create-React-App used to build react web-app.
 - mysql database with sequelize as ORM is used for db operations.
 
+## WHAT IT LOOKS LIKE RN -
+
+![](sb-assignment.gif)
+
 ## TO SETUP LOCALLY
 ```$xslt
 - clone the repo
