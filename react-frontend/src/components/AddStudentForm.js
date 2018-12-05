@@ -17,14 +17,14 @@ class AddStudentForm extends React.Component{
         this.setState({
             [e.target.id]:e.target.value
         })
-        console.log(e.target.value)
 
     }
 
     submitHandler=(e)=>{
+        e.preventDefault()
         axios.post('http://127.0.0.1:8888/addStudent',this.state)
             .then((s)=>{
-                console.log(s)
+                this.props.history.push('/')
             })
             .catch(e=>{
             console.log(e)

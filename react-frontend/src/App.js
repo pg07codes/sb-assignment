@@ -8,9 +8,11 @@ import AddStudentForm from "./components/AddStudentForm";
 
 class App extends Component {
   state={
-      isAdmin:true
-  }
 
+  }
+  updateState=(x)=>{
+      this.setState(x)
+  }
   render() {
     return (
       <Router>
@@ -19,7 +21,7 @@ class App extends Component {
               <div className="container">
                   {this.state.isAdmin?
                       <Route exact path='/addStudent' component={AddStudentForm}/>:
-                      <Route exact path='/login' component={LoginForm}/>}
+                      <Route path="/login" render={()=><LoginForm updateState={this.updateState}/>}/>}
                   <Route exact path='/' component={Home}/>
               </div>
           </div>

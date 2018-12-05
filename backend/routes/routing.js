@@ -24,5 +24,22 @@ Router.post('/auth/login',passport.authenticate('local'),(req,res)=>{
     res.send({isAdmin:true})
 })
 
+Router.get('/auth/logout',(r,s)=>{
+    if(r.isAuthenticated()){
+        r.logout()
+        r.session.destroy()
+        s.send({isAdmin:false})
+    }
+    else
+        s.redirect('http://localhost:3000') // this is a fix for now as i find a way to setCookies in browser
+})
+
+Router.get('/auth/verifyAdmin',(r,s)=>{
+    if(r.isAuthenticated())
+        return (s.JSON({isAdmin:true}))
+    else
+        return(s.JSON({isAdmin:false}))
+})
+
 
 module.exports=Router

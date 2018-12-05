@@ -9,7 +9,7 @@ function StudentCard (props){
         height:"10rem"
     }
     return(
-        <div className="col-md-4 col-sm-6">
+        <div className="col-md-4 col-sm-6 mb-2">
             <div className="card bg-light" style={style}>
                 <div className="card-body">
                     <h5 className="card-title">{props.sInfo.name}</h5>
