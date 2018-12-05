@@ -8,10 +8,14 @@ Router.get("/",(r,s)=> {
 })
 
 Router.post('/addStudent',async(r,s)=>{
-    console.log('requested')
-    console.log(r.body);
+
     status=await ctrl.insertStudent(r,s)
     s.json(status)
+})
+
+Router.get('/getAllStudents',async (r,s)=>{
+    const data=await ctrl.getAllStudents()
+    s.send(data)
 })
 
 module.exports=Router

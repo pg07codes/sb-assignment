@@ -5,6 +5,7 @@
 /backend/node_modules
 /backend/config.json
 /react-frontend/node_modules
+/backend/testdata.js
 /.pnp
 .pnp.js
 .idea/

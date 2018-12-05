@@ -1,7 +1,6 @@
 /*created by Pranav Gupta(pg07codes) on 5/12/18*/
 
 const {student,studentProfDetail}=require("../db/models")
-//const =require("../db/models").studentProfDetail
 
 module.exports={
     insertStudent: async function(r,s){
@@ -29,4 +28,25 @@ module.exports={
             }))
         }
         },
+    getAllStudents: async function(){
+
+        // joining both the table on id and then fetching json data
+
+        try{
+            const data=await student.findAll({
+                include:[{
+                    model:studentProfDetail
+                }]
+            })
+            return (new Promise((res)=>{
+                res(data)
+            }))
+        }
+        catch(e){
+            console.log(e);
+            return (new Promise((res)=>{
+                res({error:e})
+            }))
+        }
+    },
 }

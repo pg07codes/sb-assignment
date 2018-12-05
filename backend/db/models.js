@@ -47,7 +47,7 @@ const studentProfDetail=db.define('studentProfDetail',{
 // for two way binding/querying of models and joining tables
 
 studentProfDetail.belongsTo(student)
-student.hasMany(studentProfDetail)
+student.hasOne(studentProfDetail)
 
 
 const admin=db.define('admin',{
@@ -68,9 +68,12 @@ const admin=db.define('admin',{
 })
 
 // The below line is only for development purpose to
-// create an admin. (should only be uncommented if admin table is empty(i.e. when no admin exists))
-
-//admin.create(require('../config').CREDS)
+// create an admin after 5s(so that table has been created after force destroy).
+// (should only be uncommented if admin table is empty(i.e. when no admin exists))
+//
+// setTimeout(()=>{
+//     admin.create(require('../config').CREDS)
+// },5000)
 
 db.sync({
     //alter:true
