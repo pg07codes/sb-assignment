@@ -20,10 +20,10 @@ app.use("/", function(req, res, next) {
     return next();
 });
 
-//home route
-app.get("/",(r,s)=> {
-    s.json({name:'pg the boss'})
-})
+
+//routing is done here for the API
+app.use('/',require('./routes/routing'))
+
 
 //server starts listening
 app.listen(PORT, () =>
