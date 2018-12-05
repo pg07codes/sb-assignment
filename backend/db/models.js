@@ -3,6 +3,7 @@
 const Sequelize=require('sequelize')
 const dt=Sequelize.DataTypes
 const dbconfig=require('../config.json').DB
+const bcrypt= require('bcrypt')
 
 const db=new Sequelize(dbconfig.NAME,dbconfig.USER,dbconfig.PASSWORD,{
     dialect:'mysql'
@@ -67,13 +68,26 @@ const admin=db.define('admin',{
     }
 })
 
-// The below line is only for development purpose to
+// These below line is only for development purpose to
 // create an admin after 5s(so that table has been created after force destroy).
 // (should only be uncommented if admin table is empty(i.e. when no admin exists))
+
 //
-// setTimeout(()=>{
-//     admin.create(require('../config').CREDS)
-// },5000)
+// const credentials=require('../config').CREDS
+// const saltRounds = 6
+//
+// bcrypt.hash(credentials.password, saltRounds, function(err, hash) {
+//     setTimeout(()=>{
+//         admin.create({
+//             username:credentials.username,
+//             password: hash
+//         })
+//     },5000)
+// })
+
+
+
+
 
 db.sync({
     //alter:true

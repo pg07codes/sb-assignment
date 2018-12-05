@@ -2,6 +2,8 @@
 
 const Router=require("express").Router()
 const ctrl=require("../controllers/studentHandlers")
+const passport=require("../passport")
+
 
 Router.get("/",(r,s)=> {
     s.json({'this is an api server':'For Development Purpose Only'})
@@ -17,5 +19,10 @@ Router.get('/getAllStudents',async (r,s)=>{
     const data=await ctrl.getAllStudents()
     s.send(data)
 })
+
+Router.post('/auth/login',passport.authenticate('local'),(req,res)=>{
+    res.send({isAdmin:true})
+})
+
 
 module.exports=Router
