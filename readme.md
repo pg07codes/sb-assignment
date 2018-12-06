@@ -9,7 +9,8 @@ node server.
 - Create-React-App used to build react web-app.
 - mysql database with sequelize as ORM is used for db operations.
 
-## WHAT IT LOOKS LIKE RN -
+## WHAT IT LOOKS LIKE -
+- multiple new features like search by company name has been added now. i'll update gif later.
 
 ![](sb-assignment.gif)
 
