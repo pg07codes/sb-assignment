@@ -8,11 +8,7 @@ import StudentCard from './StudentCard'
 
 function StudentGroup (props){
 
-    let StudentCards=props.students.map(s=>{
-        return(
-            <StudentCard sInfo={s}/>
-        )
-    })
+    let StudentCards=props.students.map(s=><StudentCard sInfo={s}/>)
     if(props.year===undefined){
         return(
             <div className='container m-3'>
